@@ -1,0 +1,11 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        slingshot/slingshot {:mvn/version "0.12.2"}}
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps {org.clojure/test.check {:mvn/version "1.0.0"}}}
+           :jar {:extra-deps {seancorfield/depstar {:mvn/version "1.1.128"}}
+                 :main-opts ["-m" "hf.depstar.jar" "http-retry.jar"]}
+           :install {:extra-deps {slipset/deps-deploy {:mvn/version "0.1.1"}}
+                     :main-opts ["-m" "deps-deploy.deps-deploy" "install" "http-retry.jar"]}
+           :deploy {:extra-deps {slipset/deps-deploy {:mvn/version "0.1.1"}}
+                    :main-opts ["-m" "deps-deploy.deps-deploy" "deploy" "http-retry.jar"]}}}
